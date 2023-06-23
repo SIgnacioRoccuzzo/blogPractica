@@ -1,0 +1,39 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+        <label class="form-label">Titulo</label>
+        <input type="text" class="form-control" formControlName="titulo">
+
+        <div class="mb-3">
+            <label class="form-label">Texto</label>
+            <input type="text" class="form-control" formControlName="texto">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Autor</label>
+            <input type="text" class="form-control" formControlName="autor">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Imagen</label>
+            <input type="text" class="form-control" formControlName="imagen">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fecha</label>
+            <input type="text" class="form-control" formControlName="fecha">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Categoria</label>
+            <select class="form-select" formControlName="categoria">
+                <option value="rock">Rock</option>
+                <option value="jazz">Jazz</option>
+                <option value="blues">Blues</option>
+                <option value="reggae">Reggae</option>
+                <option value="techno">Techno</option>
+                <option value="festivales">Festivales</option>
+            </select>
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-info">
+    </div>
+</form>
