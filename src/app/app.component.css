@@ -1,4 +1,18 @@
 .container {
-    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+
+
+}
+
+.contenedor-posteos {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 
 }

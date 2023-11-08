@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Post } from 'src/app/interface/post.interface';
+
 import { PostServiceService } from 'src/app/services/post-service.service';
 
 
@@ -13,7 +13,16 @@ export class FormularioComponent {
 
   postsService = inject(PostServiceService)
   formulario: FormGroup;
-
+  categorias = [
+    'Vintage',
+    'Ropa formal',
+    'Ropa de Oficina',
+    'Eventos',
+    'Ropa Juvenil',
+    'Ropa Urbana',
+    'Playa',
+    'Contemporáneo'
+  ];
   constructor() {
 
 
@@ -34,7 +43,7 @@ export class FormularioComponent {
       fecha: new FormControl(null, [
         Validators.required
       ]),
-      categoria: new FormControl(null, [
+      categorias: new FormControl(null, [
         Validators.required
       ])
     })

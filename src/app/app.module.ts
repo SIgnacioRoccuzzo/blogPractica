@@ -7,17 +7,23 @@ import { ListaPostsComponent } from './components/lista-posts/lista-posts.compon
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ListaPostsComponent,
-    FormularioComponent
+    FormularioComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

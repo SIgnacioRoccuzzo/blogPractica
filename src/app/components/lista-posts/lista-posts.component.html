@@ -1,35 +1,46 @@
-<div class="container">
-    <h1 class="mb-5">MUSIC BLOG</h1>
+<section id="blog">
+    <h1 class="mb-5">FASHION BLOG</h1>
+
     <p>
-        Bienvenidos a nuestro blog de música, un espacio dedicado a explorar y disfrutar de la increíble diversidad
-        musical que
-        nos rodea. Aquí encontrarás un viaje apasionante a través de los géneros, artistas y momentos emblemáticos de la
-        historia musical.
+        Bienvenidos a nuestro blog de moda, un espacio dedicado a explorar y disfrutar de la increíble diversidad
+        de estilos y tendencias que nos rodea. Aquí encontrarás consejos apasionantes para crear el look perfecto
+        en cualquier ocasión.
 
-        Sumérgete en la magia de los ritmos y melodías mientras exploramos desde los clásicos intemporales hasta las
-        últimas
-        tendencias. Descubriremos la historia detrás de las canciones y los artistas más influyentes, compartiremos
-        recomendaciones de nuevos talentos y te mantendremos al tanto de los eventos y lanzamientos más emocionantes.
-        ¡Únete a
-        nosotros y déjate llevar por la fascinante experiencia musical que tenemos preparada para ti en nuestro blog!
+        Sumérgete en la magia de las combinaciones de ropa y accesorios, desde los clásicos intemporales hasta las
+        últimas tendencias. Descubriremos la historia detrás de los looks icónicos, compartiremos recomendaciones
+        para nuevos estilos y te mantendremos al tanto de los eventos de moda y lanzamientos más emocionantes.
+        ¡Únete a nosotros y déjate inspirar por la fascinante experiencia de la moda que tenemos preparada para ti en
+        nuestro blog!
     </p>
-    <div class="col-3 p-2">
-        <select class="form-select" (change)="changeCat($event)">
-            <option value="todas">Categorias</option>
-            <option *ngFor="let categoria of categoria" [value]="categoria">{{categoria}}</option>
 
+    <div class="selector col-md-3">
+        <label class="form-label">Categorias</label>
+        <select class="form-select" (change)="changeCat($event)">
+            <option value="todas">Todas</option>
+            <option *ngFor="let categoria of categorias" [value]="categoria">{{categoria}}</option>
         </select>
     </div>
+
     <hr>
+
     <div class="row">
-        <div class="posteos col-12 col-md-8 m-2" *ngFor="let posts of posteos; let indice = index;">
-            <img [src]="posts.imagen" alt="">
-            <h4>{{posts.titulo}}</h4>
-            <p>{{posts.texto}}</p>
-            <p>Autor:"{{posts.autor}}"</p>
-            <p>Fecha:{{posts.fecha}}</p>
-            <p>Categoria: {{posts.categoria}}</p>
-            <button class="btn btn-secondary" (click)="onClickRemove(indice)">Remove</button>
+
+        <div class="post col-md-3 col-sm-6 col-12" *ngFor="let post of posteos; let indice = index;">
+            <div class="foto">
+                <figure>
+                    <img [src]="post.imagen" alt="" class="rounded mb-2">
+
+                </figure>
+                <div class="capa">
+                    <h2>{{post.titulo}}</h2>
+                    <p>{{post.texto}}</p>
+                    <p>Autor: {{post.autor}}</p>
+                    <cite>{{post.fecha}}</cite>
+                </div>
+            </div>
+            <div class="boton">
+                <button class="btn btn-secondary" (click)="onClickRemove(indice)">Remove</button>
+            </div>
         </div>
     </div>
-</div>
+</section>

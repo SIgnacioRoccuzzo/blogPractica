@@ -15,7 +15,7 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Imagen</label>
+            <label class="form-label">Imagen "URL"</label>
             <input type="text" class="form-control" formControlName="imagen">
         </div>
 
@@ -26,12 +26,8 @@
         <div class="mb-3">
             <label class="form-label">Categoria</label>
             <select class="form-select" formControlName="categoria">
-                <option value="rock">Rock</option>
-                <option value="jazz">Jazz</option>
-                <option value="blues">Blues</option>
-                <option value="reggae">Reggae</option>
-                <option value="techno">Techno</option>
-                <option value="festivales">Festivales</option>
+                <option value="" disabled selected>Selecciona una categoría</option>
+                <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
             </select>
         </div>
         <input type="submit" value="Enviar" class="btn btn-info">
