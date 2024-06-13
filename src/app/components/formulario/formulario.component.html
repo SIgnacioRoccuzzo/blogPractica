@@ -1,35 +1,58 @@
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-
-    <div class="mb-3">
-        <label class="form-label">Titulo</label>
-        <input type="text" class="form-control" formControlName="titulo">
+<div class="container">
+    <h1>Create Post</h1>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label class="form-label">Titulo</label>
+            <input type="text" class="form-control" formControlName="titulo">
+            <div *ngIf="formulario.get('titulo')?.invalid && formulario.get('titulo')?.touched" class="text-danger">
+                El título es obligatorio.
+            </div>
+        </div>
 
         <div class="mb-3">
             <label class="form-label">Texto</label>
             <input type="text" class="form-control" formControlName="texto">
+            <div *ngIf="formulario.get('texto')?.invalid && formulario.get('texto')?.touched" class="text-danger">
+                El texto debe tener al menos 10 caracteres.
+            </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Autor</label>
             <input type="text" class="form-control" formControlName="autor">
+            <div *ngIf="formulario.get('autor')?.invalid && formulario.get('autor')?.touched" class="text-danger">
+                El autor es obligatorio y debe tener al menos 3 caracteres.
+            </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Imagen "URL"</label>
             <input type="text" class="form-control" formControlName="imagen">
+            <div *ngIf="formulario.get('imagen')?.invalid && formulario.get('imagen')?.touched" class="text-danger">
+                La imagen es obligatoria.
+            </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Fecha</label>
             <input type="text" class="form-control" formControlName="fecha">
+            <div *ngIf="formulario.get('fecha')?.invalid && formulario.get('fecha')?.touched" class="text-danger">
+                La fecha es obligatoria.
+            </div>
         </div>
+
         <div class="mb-3">
             <label class="form-label">Categoria</label>
             <select class="form-select" formControlName="categoria">
                 <option value="" disabled selected>Selecciona una categoría</option>
                 <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
             </select>
+            <div *ngIf="formulario.get('categoria')?.invalid && formulario.get('categoria')?.touched"
+                class="text-danger">
+                La categoría es obligatoria.
+            </div>
         </div>
-        <input type="submit" value="Enviar" class="btn btn-info">
-    </div>
-</form>
+
+        <input type="submit" value="Enviar" class="btn btn-info" [disabled]="formulario.invalid">
+    </form>
+</div>

@@ -1,18 +1,77 @@
-.container {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bolder;
-
-
+/* Estilos de la navegación */
+.navbar-nav .nav-link {
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.contenedor-posteos {
-    margin: 0;
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+    background-color: #5a6268;
+    color: #fff;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 767px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px;
+    }
+}
+
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.container-fluid {
     padding: 0;
-    box-sizing: border-box;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 0;
+}
 
+.container-fluid>.container {
+    max-width: 1200px;
+    /* Ajustar según sea necesario */
+    margin: 0 auto;
+    padding: 0 15px;
+}
 
+/* Estilos personalizados para el selector */
+.navbar-nav .form-select {
+    font-size: 16px;
+    padding: 10px 15px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.navbar-nav .form-select:focus {
+    box-shadow: none;
+}
+
+.navbar-nav .form-select option {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.navbar-nav .form-select option:hover {
+    background-color: #5a6268;
 }

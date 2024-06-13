@@ -1,49 +1,58 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/interface/post.interface';
 import { PostServiceService } from 'src/app/services/post-service.service';
-
-
-
 
 @Component({
   selector: 'app-lista-posts',
   templateUrl: './lista-posts.component.html',
   styleUrls: ['./lista-posts.component.css']
 })
-export class ListaPostsComponent {
+export class ListaPostsComponent implements OnInit {
 
+  postsServices = inject(PostServiceService);
+  activatedRoute = inject(ActivatedRoute);
 
-  postsServices = inject(PostServiceService)
-  activatedRoute = inject(ActivatedRoute)
+  posteos: Post[] = [];
+  categorias: string[] = [];
 
-  posteos: Post[];
-  categorias: string[];
+  constructor() { }
 
-  constructor() {
-    this.categorias = [];
-    this.posteos = [];
-
-  }
   ngOnInit() {
+    this.loadCategories();
+    this.activatedRoute.params.subscribe(params => {
+      const categoria = params['categoria'];
+      if (categoria) {
+        this.loadPostsByCategory(categoria);
+      } else {
+        this.loadPosts();
+      }
+    });
+  }
+
+  loadPosts() {
     this.posteos = this.postsServices.getAll();
-    this.categorias = this.postsServices.getCategorias()
+  }
 
+  loadCategories() {
+    this.categorias = this.postsServices.getCategorias();
+  }
 
+  loadPostsByCategory(categoria: string) {
+    this.posteos = this.postsServices.getCategory(categoria);
   }
 
   onClickRemove(indice: number) {
-    this.posteos.splice(indice, 1)
+    this.posteos.splice(indice, 1);
   }
 
-  changeCat($event: any) {
-    if ($event.target.value === 'todas') {
-      this.posteos = this.postsServices.getAll();
+  changeCat(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const selectedCategory = target.value;
+    if (selectedCategory === 'todas') {
+      this.loadPosts();
     } else {
-      this.posteos = this.postsServices.getCategory($event.target.value);
+      this.loadPostsByCategory(selectedCategory);
     }
-    console.log($event)
   }
-
-
 }

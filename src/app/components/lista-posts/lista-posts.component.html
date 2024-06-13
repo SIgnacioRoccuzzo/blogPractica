@@ -1,21 +1,21 @@
 <section id="blog">
-    <h1 class="mb-5">FASHION BLOG</h1>
+    <h1 class="mb-5 text-center">FASHION BLOG</h1>
 
-    <p>
-        Bienvenidos a nuestro blog de moda, un espacio dedicado a explorar y disfrutar de la increíble diversidad
-        de estilos y tendencias que nos rodea. Aquí encontrarás consejos apasionantes para crear el look perfecto
-        en cualquier ocasión.
+    <p class="blog-intro">
+        Bienvenidos a nuestro blog de moda, un espacio dedicado a explorar y disfrutar de la increíble diversidad de
+        estilos y tendencias que nos rodea. Aquí encontrarás consejos apasionantes para crear el look perfecto en
+        cualquier ocasión.
 
         Sumérgete en la magia de las combinaciones de ropa y accesorios, desde los clásicos intemporales hasta las
-        últimas tendencias. Descubriremos la historia detrás de los looks icónicos, compartiremos recomendaciones
-        para nuevos estilos y te mantendremos al tanto de los eventos de moda y lanzamientos más emocionantes.
-        ¡Únete a nosotros y déjate inspirar por la fascinante experiencia de la moda que tenemos preparada para ti en
-        nuestro blog!
+        últimas tendencias. Descubriremos la historia detrás de los looks icónicos, compartiremos recomendaciones para
+        nuevos estilos y te mantendremos al tanto de los eventos de moda y lanzamientos más emocionantes. ¡Únete a
+        nosotros y déjate inspirar por la fascinante experiencia de la moda que tenemos preparada para ti en nuestro
+        blog!
     </p>
 
     <div class="selector col-md-3">
-        <label class="form-label">Categorias</label>
-        <select class="form-select" (change)="changeCat($event)">
+        <label for="category-select" class="form-label">Categorías</label>
+        <select id="category-select" class="form-select" (change)="changeCat($event)">
             <option value="todas">Todas</option>
             <option *ngFor="let categoria of categorias" [value]="categoria">{{categoria}}</option>
         </select>
@@ -24,12 +24,10 @@
     <hr>
 
     <div class="row">
-
         <div class="post col-md-3 col-sm-6 col-12" *ngFor="let post of posteos; let indice = index;">
             <div class="foto">
                 <figure>
-                    <img [src]="post.imagen" alt="" class="rounded mb-2">
-
+                    <img [src]="post.imagen" alt="Imagen del post {{post.titulo}}" class="rounded mb-2">
                 </figure>
                 <div class="capa">
                     <h2>{{post.titulo}}</h2>

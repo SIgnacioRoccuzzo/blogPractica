@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListaPostsComponent } from './components/lista-posts/lista-posts.component';
-import { FormularioComponent } from './components/formulario/formulario.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-
   { path: 'posts', component: ListaPostsComponent },
-  { path: 'blog/new', component: FormularioComponent }
+  { path: 'category/:categoria', component: ListaPostsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '', redirectTo: '/posts', pathMatch: 'full' },
+  { path: '**', redirectTo: '/posts' }
 ];
 
 @NgModule({
